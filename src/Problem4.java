@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Problem4 {
 
@@ -6,8 +7,24 @@ public class Problem4 {
         ArrayList<Integer> palindroms = getPalindromes(998001);
 
 
+        int[] numbers = new int[900];
+        for (int i = 0; i < 900; i++) {
+            numbers[i] = i + 100;
+        }
+
+
+
+
         for (int i = palindroms.size() - 1; i >= 0; i--) {
-            System.out.println(palindroms.get(i));
+            for(int j = 899; j >= 0; j--) {
+                double result = (double) palindroms.get(i) / numbers[j];
+
+                if(result % 1 == 0 && result > 99 && result < 1000) {
+                    System.out.println(result + " * " + numbers[j] + " = " + palindroms.get(i));
+                }
+            }
+
+
         }
 
     }
